@@ -1,0 +1,121 @@
+@font-face {
+  font-family: 'Aileron';
+  src: url('Aileron-Light.otf') format('OpenType'),
+       url('Aileron-Thin.otf') format('OpenType');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AileronThin';
+  src: url('Aileron-Thin.otf') format('OpenType');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header styling */
+header {
+  width: 100%;
+  text-align: center;
+  padding: 25px 0;
+  font-family: 'AileronThin', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #111;
+  background-color: #fff;
+  border-bottom: 0px solid #eee;
+  position: sticky; /* keeps it visible if you scroll */
+  top: 0;
+  z-index: 10;
+}
+
+.subtitles {
+  display: flex;
+  justify-content: center; /* centers them horizontally */
+  align-items: center;
+  gap: 700px; /* space between h2 and h3 */
+  background-color: #fff;
+  padding: 15px 0;
+  font-family: 'AileronThin', sans-serif;
+}
+
+.subtitles h2,
+.subtitles h3 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+  color: #111;
+  letter-spacing: 0.5px;
+}
+
+h2, h3 {
+  display: inline-block;
+  margin: 0 10px; /* space between them */
+  font-weight: normal;
+}
+
+
+
+
+
+
+
+/* Video grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 90%;
+  max-width: 1400px;
+  overflow-y: auto;
+  max-height: 100vh;
+  padding: 20px 0;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 0px;
+  box-shadow: 0 0px 0px rgba(0,0,0,0.2);
+}
+
+/* PHONE RESPONSIVE */
+@media (max-width: 768px) {
+  .subtitles {
+    flex-direction: column;   /* stack h2 and h3 vertically */
+    gap: 10px;                /* smaller gap for mobile */
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* stack videos vertically */
+    gap: 15px;                  /* smaller spacing */
+    max-height: none;            /* let it scroll naturally */
+  }
+
+  video {
+    width: 100%; /* fill available width */
+    height: auto;
+  }
+
+  header {
+    font-size: 28px; /* slightly smaller header */
+    padding: 15px 0;
+  }
+
+  .subtitles h2,
+  .subtitles h3 {
+    font-size: 16px; /* smaller subtitles */
+  }
+}
