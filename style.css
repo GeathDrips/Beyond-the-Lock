@@ -22,6 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
 }
 
 /* Header styling */
@@ -53,11 +54,12 @@ header {
 
 .subtitles h2,
 .subtitles h3 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 400;
   margin: 0;
   color: #111;
   letter-spacing: 0.5px;
+  padding-bottom: 10%;
 }
 
 h2, h3 {
@@ -66,6 +68,23 @@ h2, h3 {
   font-weight: normal;
 }
 
+.text {
+    font-family: 'Aileron', sans-serif;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.65;
+
+  /* Centered column */
+  max-width: 650px;
+  margin: 0px auto;
+
+  /* Gentle asymmetry (magazine offset style) */
+  padding: 0 0px 0 60px; 
+  transform: translateX(-12px);
+
+  /* Clean reading experience */
+  text-align: center;
+}
 
 
 
@@ -84,12 +103,38 @@ h2, h3 {
   padding: 20px 0;
 }
 
+.video-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.caption {
+  font-family: 'AileronThin', sans-serif;
+  font-size: 14px;
+  color: #444;
+  text-align: center;
+  padding-left: 2px;
+  letter-spacing: 0.2px;
+  transform: translateX(4px); /* soft asymmetry */
+}
+
 video {
   width: 100%;
   height: auto;
   border-radius: 0px;
   box-shadow: 0 0px 0px rgba(0,0,0,0.2);
 }
+
+.credits {
+  font-family: 'Aileron', sans-serif;
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+  margin: 20px 0;
+}
+
+
 
 /* PHONE RESPONSIVE */
 @media (max-width: 768px) {
