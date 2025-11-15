@@ -30,32 +30,32 @@
   <div class="grid">
     <div class="video-item">
     <video src="1.mp4" muted playsinline preload="metadata"></video>
-    <p class="caption">Location 1</p>
+    <p class="caption">45.52717, -73.55876</p>
   </div>
 
   <div class="video-item">
     <video src="3.mp4" muted playsinline preload="metadata"></video>
-    <p class="caption">Location 2</p>
+    <p class="caption">45.53074, -73.55489</p>
   </div>
 
   <div class="video-item">
     <video src="2.mp4" muted playsinline preload="metadata"></video>
-    <p class="caption">Location 3</p>
+    <p class="caption">45.52892, -73.55648</p>
   </div>
 
   <div class="video-item">
     <video src="4.mp4" muted playsinline preload="metadata"></video>
-    <p class="caption">Location 4</p>
+    <p class="caption">45.5409666, -73.5984310</p>
   </div>
 
   <div class="video-item">
     <video src="6.mp4" muted playsinline preload="metadata"></video>
-    <p class="caption">Location 5</p>
+    <p class="caption">45.5409666, -73.5984310</p>
   </div>
 
   <div class="video-item">
     <video src="7.mp4" muted playsinline preload="metadata"></video>
-    <p class="caption">Location 6</p>
+    <p class="caption">45.5433277, -73.5962990</p>
   </div>
   </div>
 
@@ -66,6 +66,16 @@
       November 2025
     </p>
   </div>
+
+  <div id="countdown" style="
+  font-family: 'AileronThin', sans-serif;
+  font-size: 18px;
+  margin-top: 10px;
+  color: #111;
+  text-align: center;
+">
+  Loading countdown...
+</div>
 
   <script>
 document.querySelectorAll('video').forEach(video => {
@@ -86,4 +96,29 @@ document.querySelectorAll('video').forEach(video => {
     }
   });
 });
+
+function updateCountdown() {
+  const target = new Date("November 30, 2026 00:00:00").getTime();
+  const now = Date.now();
+  const diff = target - now;
+
+  if (diff <= 0) {
+    document.getElementById("countdown").textContent = "Expired";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const mins = Math.floor((diff / (1000 * 60)) % 60);
+  const secs = Math.floor((diff / 1000) % 60);
+
+  // Pad hours/mins/secs with leading zeros
+  const pad = n => n.toString().padStart(2, "0");
+
+  document.getElementById("countdown").textContent =
+    `${days}d ${pad(hours)}h ${pad(mins)}m ${pad(secs)}s`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
 </script>
